@@ -1,4 +1,7 @@
 import React from "react";
+import { signIn, signUp } from "../FireBase/firebaseFunctions";
+
+
 
 
 
@@ -9,8 +12,8 @@ const LandingPage = () => {
             <h1>Never Miss a Birthday
             Celebration Again!</h1>
             <div className="button-wrapper">      
-            <button>Sign in</button>
-            <button>Sign up</button>
+            <button onClick={signIn}>Sign in</button>
+            <button onClick={signUp}>Sign up</button>
             </div> 
     </div>
   );
