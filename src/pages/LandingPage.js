@@ -1,5 +1,7 @@
 import React from "react";
-import { signIn, signUp } from "../FireBase/firebaseFunctions";
+import { signIn, signUp } from '../server/firebaseFunctions'
+import birthdayCakeImage from "../assets/birthday_cake_ext.jpg";
+
 
 
 
@@ -8,7 +10,7 @@ import { signIn, signUp } from "../FireBase/firebaseFunctions";
 const LandingPage = () => {
   return (
     <div>
-            <img src="" alt=""></img>
+            <img src={birthdayCakeImage} alt="Birthday Cake"></img>
             <h1>Never Miss a Birthday
             Celebration Again!</h1>
             <div className="button-wrapper">      

@@ -1,13 +1,21 @@
 import React from 'react';
 import './App.css';
+import LandingPage from './pages/LandingPage';
+import SignUpPage from './pages/SignUpPage';
+import Main from './pages/Main';
+import { Route, Routes } from 'react-router-dom';
+
+
 
 
 
 function App() {
   return (
-    <div className="App">
-      
-    </div>
+    <Routes>
+      <Route path="/" element={<LandingPage />} />
+      <Route path="/main" element={<Main />} />
+      <Route path="/signup" element={<SignUpPage />} />
+    </Routes>
   );
 }
 
