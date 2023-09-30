@@ -10,13 +10,17 @@ const SignUpPage = () => {
   const[password, setPassword] = useState('');
 
   const signUp = async () => {
+    try {
        await createUserWithEmailAndPassword(auth, email, password);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
     <div>
-         <input placeholder="Email..." onChange={(e)=>{setEmail(e.target.value)}} />
-         <input placeholder="Password..." onChange={(e)=>{setPassword(e.target.value)}} />
+         <input placeholder="Email..."  onChange={(e)=>{setEmail(e.target.value)}} />
+         <input placeholder="Password..." type="password" onChange={(e)=>{setPassword(e.target.value)}} />
          <button>Sign Up</button>   
     </div>
   );
