@@ -1,7 +1,7 @@
 import React from "react";
 import BirthdayContainer from "./components/BirthdayContainer";
-import AddButton from "./components/AddButton";
-import {auth} from '../server/firebaseConfig'
+import {auth} from '../server/firebaseConfig';
+import "../styles/Main.css";
 
 //img src = auth.currentUser.photoURL / if no photoURL, use default image
 //auth.currentUser.displayName
@@ -27,11 +27,11 @@ const Main = () => {
           <p></p>
           <hr></hr>
 
-
+        {/* Add/ Remove BirthdayContainers*/}
          <BirthdayContainer />
 
 
-         <AddButton />
+         <div className="button-plus"></div>
     </div>
   );
 }

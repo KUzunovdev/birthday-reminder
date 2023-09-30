@@ -33,6 +33,7 @@ html, body {
     justify-content: center; 
   }
   
+  /* add pulse effect on hover*/
   .google-signin-button,
   .signup-button {
     border-radius: 10px; 

@@ -1,0 +1,49 @@
+
+
+/*Plus button styles*/
+.button-plus {
+    position: absolute;
+    width: 35px;
+    height: 35px;
+    background: #fff;
+    cursor: pointer;
+    border: 2px solid #DC143C;
+    border-radius: 25%;
+  
+    /* Mittig */
+    top: 50%;
+    left: 50%;
+  }
+  
+  .button-plus:after {
+    content: '';
+    position: absolute;
+    transform: translate(-50%, -50%);
+    height: 4px;
+    width: 50%;
+    background: #DC143C;
+    top: 50%;
+    left: 50%;
+  }
+  
+  .button-plus:before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #DC143C;
+    height: 50%;
+    width: 4px;
+  }
+  
+  .button-plus:hover:before,
+  .button-plus:hover:after {
+    background: #fff;
+    transition: 0.2s;
+  }
+  
+  .button-plus:hover {
+    background-color: #DC143C;
+    transition: 0.2s;
+  }
