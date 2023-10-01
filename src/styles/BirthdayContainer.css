@@ -1,0 +1,22 @@
+.birthday-container {
+    background: #E6E6FA; 
+    display: flex;
+    align-items: center;
+    padding: 10px; 
+    width: 50%;
+  }
+  
+  .birthday-image {
+    max-width: 100px; 
+    height: auto; 
+    margin-right: 10px; 
+  }
+  
+  .birthday-name {
+    font-weight: bold; 
+    margin-right: 10px; 
+  }
+  
+  .birthday-days {
+    font-weight: bold; 
+  }

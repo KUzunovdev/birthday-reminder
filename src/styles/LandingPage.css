@@ -13,7 +13,7 @@ html, body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: top;
 }
   
   .cake-image {
@@ -23,7 +23,7 @@ html, body {
   }
   
   h1 {
-    font-size: 24px; 
+    font-size: 40px; 
     color: #ffffff; 
     margin-bottom: 20px;
   }
@@ -36,10 +36,20 @@ html, body {
   /* add pulse effect on hover*/
   .google-signin-button,
   .signup-button {
+    display: flex;
+    align-items: center; 
+    justify-content: center;
     border-radius: 10px; 
     background-color: #FFD700;
     color: #ffffff; 
     padding: 10px 20px; 
     cursor: pointer; 
-    margin: 0 10px; 
+    margin: 0 10px;
+    min-width: 200px;
+    height: 50px;
+    font-size: large; 
+  }
+
+  .google-signin-button{  
+    margin-top: 15px;
   }
