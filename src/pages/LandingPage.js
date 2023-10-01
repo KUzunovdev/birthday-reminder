@@ -30,7 +30,7 @@ const LandingPage = () => {
         <button className="google-signin-button" onClick={signIn}>
           Sign in with Google
         </button>
-        <button className="signup-button">Sign up</button>{" "}
+        <button className="signup-button" onClick={()=>{navigate("/signup")}}>Sign up</button>
         {/* Lead to signupPage */}
       </div>
     </div>

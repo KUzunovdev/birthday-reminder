@@ -3,12 +3,15 @@ import BirthdayContainer from "./components/BirthdayContainer";
 import {auth} from '../server/firebaseConfig';
 import "../styles/Main.css";
 
-//img src = auth.currentUser.photoURL / if no photoURL, use default image
-//auth.currentUser.displayName
+
 
 const Main = () => {
 
+  const handlePlus = () => {
+    //add new birthday container with popup
+  }
 
+  
   const userProfilePicture = auth.currentUser?.providerData[0]?.providerId === "google.com" && auth.currentUser.photoURL
     ? auth.currentUser.photoURL
     : '../assets/default_profile_picture.png';
@@ -31,7 +34,7 @@ const Main = () => {
          <BirthdayContainer />
 
 
-         <div className="button-plus"></div>
+         <div className="button-plus" onClick={handlePlus}></div>
     </div>
   );
 }
