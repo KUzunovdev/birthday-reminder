@@ -47,9 +47,39 @@ html, body {
     margin: 0 10px;
     min-width: 200px;
     height: 50px;
-    font-size: large; 
+    font-size: large;
+    transition: transform 0.2s; 
   }
 
   .google-signin-button{  
     margin-top: 15px;
   }
+
+
+  .google-signin-button:hover,
+.signup-button:hover {
+    transform: scale(1.05);
+    transition: transform 0.2s;
+}
+
+.google-signin-button:active,
+.signup-button:active {
+    transform: scale(0.95);
+    transition: transform 0.2s;
+    animation: pulse 0.5s ease infinite;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(0.95);
+    }
+    50% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(0.95);
+    }
+}
+
+
+  
