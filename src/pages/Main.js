@@ -1,12 +1,37 @@
-import React from "react";
+import React, { useEffect } from "react";
 import BirthdayContainer from "./components/BirthdayContainer";
-import {auth} from '../server/firebaseConfig';
+import {auth ,db} from '../server/firebaseConfig';
 import "../styles/Main.css";
 import { useState } from "react";
+import { collection, getDocs } from "firebase/firestore";
 
-
-
+// setBirthdayList(birthdayList.docs.map(doc => doc.data()));
+// const data = await db.collection('birthdays').get();
 const Main = () => {
+
+
+  const[birthdayList, setBirthdayList] = useState([]);
+
+  const birthdayRef = collection(db, "birthdays");
+
+  useEffect(() => {
+    const getBirthdaysList = async () => {
+
+      try{
+      const data = await getDocs(birthdayRef);  
+      const filteredData = data.docs.map((docs) => ({
+        ...docs.data(),
+        id: docs.id,
+      }));
+      setBirthdayList(filteredData);
+      console.log(filteredData);                        
+      } catch (err) {
+        console.log(err);
+      } 
+    };
+
+    getBirthdaysList();
+  }, []);
 
   const handlePlus = () => {
     //add new birthday container with popup
@@ -37,7 +62,15 @@ const Main = () => {
 
         {/* Add/ Remove BirthdayContainers*/}
         <div className="birthday-wrapper">
-         <BirthdayContainer />
+          {birthdayList.map((birthday) => (
+          <BirthdayContainer
+            key={birthday.id}
+            name={birthday.name}
+            img={birthday.imgURL}
+            date={birthday.birthDate}
+            />
+          ))}
+         
          </div>
 
          <div className="button-plus" onClick={handlePlus}></div>
