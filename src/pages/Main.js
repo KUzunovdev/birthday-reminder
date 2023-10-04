@@ -12,7 +12,7 @@ const Main = () => {
 
 
   const[birthdayList, setBirthdayList] = useState([]);
-  
+  const [showAddPopUp, setShowAddPopUp] = useState(false);
 
   const birthdayRef = collection(db, "birthdays");
 
@@ -72,11 +72,11 @@ const Main = () => {
           ))}
 
           {/*Conditional rendering of AddPopUp*/}
-          
+          {showAddPopUp && <AddPopUp />}
          
          </div>
 
-         <div className="button-plus" onClick={}></div>
+         <div className="button-plus" onClick={()=> {setShowAddPopUp(!showAddPopUp)}}></div>
     </div>
   );
 }
