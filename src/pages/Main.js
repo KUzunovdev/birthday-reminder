@@ -3,7 +3,7 @@ import BirthdayContainer from "./components/BirthdayContainer";
 import { auth, db } from "../server/firebaseConfig";
 import "../styles/Main.css";
 import { useState } from "react";
-import { collection, getDocs } from "firebase/firestore";
+import { collection, getDocs, onSnapshot  } from "firebase/firestore";
 import AddPopUp from "./components/AddPopUp";
 import { useNavigate } from "react-router-dom";
 
@@ -24,7 +24,6 @@ const Main = () => {
         id: docs.id,
       }));
       setBirthdayList(filteredData);
-      console.log(filteredData);
     } catch (err) {
       console.log(err);
     }
@@ -32,6 +31,20 @@ const Main = () => {
 
   useEffect(() => {
     getBirthdaysList();
+
+    
+    const unsubscribe = onSnapshot(birthdayRef, (snapshot) => {
+      const updatedBirthdayList = snapshot.docs.map((doc) => ({
+        ...doc.data(),
+        id: doc.id,
+      }));
+      setBirthdayList(updatedBirthdayList);
+    });
+
+    return () => {
+      
+      unsubscribe();
+    };
   }, []);
 
   const [birthdayCount, setBirthdayCount] = useState(0);
@@ -77,6 +90,7 @@ const Main = () => {
             name={birthday.name}
             img={birthday.imgURL}
             date={birthday.birthDate}
+            id={birthday.id}
           />
         ))}
 
