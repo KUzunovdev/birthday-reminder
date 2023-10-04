@@ -4,6 +4,7 @@ import {auth ,db} from '../server/firebaseConfig';
 import "../styles/Main.css";
 import { useState } from "react";
 import { collection, getDocs } from "firebase/firestore";
+import AddPopUp from "./components/AddPopUp";
 
 // setBirthdayList(birthdayList.docs.map(doc => doc.data()));
 // const data = await db.collection('birthdays').get();
@@ -11,6 +12,7 @@ const Main = () => {
 
 
   const[birthdayList, setBirthdayList] = useState([]);
+  
 
   const birthdayRef = collection(db, "birthdays");
 
@@ -33,9 +35,7 @@ const Main = () => {
     getBirthdaysList();
   }, []);
 
-  const handlePlus = () => {
-    //add new birthday container with popup
-  }
+  
   const[birthdayCount, setBirthdayCount] = useState(0);
 
   const userProfilePicture = auth.currentUser?.providerData[0]?.providerId === "google.com" && auth.currentUser.photoURL
@@ -70,10 +70,13 @@ const Main = () => {
             date={birthday.birthDate}
             />
           ))}
+
+          {/*Conditional rendering of AddPopUp*/}
+          
          
          </div>
 
-         <div className="button-plus" onClick={handlePlus}></div>
+         <div className="button-plus" onClick={}></div>
     </div>
   );
 }

@@ -7,7 +7,7 @@ const BirthdayContainer = ({name, imgURL, date}) => {
   const currentDate = new Date();
 
   const birthdayDate = new Date(date);
-
+  
 
    const currentYear = currentDate.getFullYear();
 
@@ -24,8 +24,6 @@ const BirthdayContainer = ({name, imgURL, date}) => {
   const daysLeft = Math.floor(timeDifference / (1000 * 3600 * 24));
 
 
-  // console.log("timeDifference:", timeDifference);
-   console.log("daysLeft:", daysLeft);
 
 
   return (
