@@ -3,6 +3,7 @@ import { useState } from "react";
 import { storage } from "../../server/firebaseConfig";
 import {ref, uploadBytes} from "firebase/storage";
 import { tr } from "date-fns/locale";
+import "../../styles/UploadImage.css";
 
 
 
@@ -10,8 +11,7 @@ import { tr } from "date-fns/locale";
 
 
 
-
-const UploadImage = () => {
+const UploadImage = ({onClose}) => {
 
     const handleImageUpload = async () => {
 
@@ -29,10 +29,19 @@ const UploadImage = () => {
     const [fileUpload, setFileUpload] = useState(null);
 
     return (
-        <div>
-            <input type="file" accept="image/*" onChange={(e) => setFileUpload(e.target.files[0])} />
-            <button onClick={handleImageUpload}>Upload</button>
+        <div className="upload-popup">
+        <div className="upload-content">
+          <button className="close-button" onClick={onClose}>
+            X
+          </button>
+          <input
+            type="file"
+            accept="image/*"
+            onChange={(e) => setFileUpload(e.target.files[0])}
+          />
+          <button onClick={handleImageUpload} className="upload-button">Upload</button>
         </div>
+      </div>
     )
 }
 

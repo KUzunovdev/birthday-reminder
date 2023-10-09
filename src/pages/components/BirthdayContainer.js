@@ -3,6 +3,14 @@ import "../../styles/BirthdayContainer.css";
 import { isBefore } from "date-fns";
 import { doc, deleteDoc } from "firebase/firestore";
 import {db} from "../../server/firebaseConfig";
+import UploadImage from "./UploadImage";
+import { useState } from "react";
+
+//icons
+import DeleteIcon from "@mui/icons-material/Delete"; 
+import IconButton from "@mui/material/IconButton"; 
+import Typography from "@mui/material/Typography";
+import UploadIcon from "@mui/icons-material/Upload"; 
 
 
 const BirthdayContainer = ({ name, imgURL, date, id }) => {
@@ -29,12 +37,33 @@ const BirthdayContainer = ({ name, imgURL, date, id }) => {
     await deleteDoc(birthdayDoc);
   }
 
+  const [showUploadImage, setShowUploadImage] = useState(false);
+
+  const toggleUploadImage = () => {
+    setShowUploadImage(!showUploadImage);
+  };
+
   return (
     <div className="birthday-container">
       <img src={imgURL} alt="" className="birthday-image" />
-      <p className="birthday-name">{name}</p>
-      <p className="birthday-days">{daysLeft}</p>
-      <button className="birthday-button" onClick={handleDelete}>Delete</button>
+      <Typography variant="h6" className="birthday-name">
+        {name}
+      </Typography>
+      <Typography variant="subtitle1" className="birthday-days">
+        {daysLeft} days left
+      </Typography>
+      {showUploadImage && <UploadImage onClose={toggleUploadImage} />}
+      <IconButton
+        onClick={() => setShowUploadImage(!showUploadImage)}
+        color="primary"
+        aria-label="Upload Image"
+      >
+        
+        <UploadIcon />
+      </IconButton>
+      <IconButton onClick={handleDelete} color="secondary" aria-label="Delete">
+        <DeleteIcon />
+      </IconButton>
     </div>
   );
 };
