@@ -3,7 +3,7 @@ import { useState } from "react";
 import "../../styles/AddPopUp.css";
 import { collection, addDoc } from 'firebase/firestore';
 import { fi } from "date-fns/locale";
-import { db } from "../../server/firebaseConfig";
+import { db , auth} from "../../server/firebaseConfig";
 
 const AddPopUp = () => {
 
@@ -16,6 +16,7 @@ const AddPopUp = () => {
             const docRef = await addDoc(collection(db, "birthdays"), {
                 name: name,
                 date: date,
+                userID: auth?.currentUser?.uid,
             });
             console.log("Document written with ID: ", docRef.id);
         } catch (e) {

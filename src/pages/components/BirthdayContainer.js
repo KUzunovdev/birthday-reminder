@@ -34,7 +34,6 @@ const BirthdayContainer = ({ name, imgURL, date, id }) => {
       <img src={imgURL} alt="" className="birthday-image" />
       <p className="birthday-name">{name}</p>
       <p className="birthday-days">{daysLeft}</p>
-      <button className="birthday-button">Edit</button>
       <button className="birthday-button" onClick={handleDelete}>Delete</button>
     </div>
   );
