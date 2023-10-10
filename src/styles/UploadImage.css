@@ -1,4 +1,3 @@
-/* UploadImage.css */
 .upload-popup {
   position: fixed;
   top: 0;
@@ -20,8 +19,8 @@
   text-align: center;
   position: relative;
   display: flex;
-  flex-direction: column; /* Center items vertically */
-  align-items: center; /* Center items horizontally */
+  flex-direction: column; 
+  align-items: center; 
 }
 
 .upload-content input[type="file"] {
@@ -29,7 +28,7 @@
 }
 
 .upload-content .upload-button {
-  background-color: #007BFF; /* Blue color */
+  background-color: #007BFF; 
   color: white;
   padding: 12px 24px;
   border: none;
@@ -38,11 +37,11 @@
 }
 
 .upload-content .upload-button:hover {
-  background-color: #0069D9; /* Darker blue color on hover */
+  background-color: #0069D9; 
 }
 
 .close-button {
-  background-color: #ff0000; /* Red color */
+  background-color: #ff0000; 
   position: absolute;
   top: 10px;
   right: 10px;

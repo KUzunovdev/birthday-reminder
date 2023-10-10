@@ -5,7 +5,7 @@ import { collection, addDoc } from 'firebase/firestore';
 import { fi } from "date-fns/locale";
 import { db , auth} from "../../server/firebaseConfig";
 
-const AddPopUp = () => {
+const AddPopUp = ({ onClose }) => {
 
     const [name, setName] = useState('');
     const [date, setDate] = useState('');
@@ -25,12 +25,17 @@ const AddPopUp = () => {
     };
 
     return (
-        <div>
-           <input type="text" placeholder="Name"  onChange={(e) => setName(e.target.value)}/>
-              <input type="text" placeholder="Date" onChange={(e)=> setDate(e.target.value)} />
-              {/*add emoji or image upload feature */}
-                <button onClick={handleAdd}>Add</button> 
+        <div className="add-popup">
+        <div className="add-popup-content">
+            <button className="close-button" onClick={onClose}>
+                X
+            </button>
+            <input type="text" placeholder="Name" onChange={(e) => setName(e.target.value)} />
+            <input type="text" placeholder="Date" onChange={(e) => setDate(e.target.value)} />
+            {/* add emoji or image upload feature */}
+            <button onClick={handleAdd} className="add-button">Add</button>
         </div>
+    </div>
     )
 }
 

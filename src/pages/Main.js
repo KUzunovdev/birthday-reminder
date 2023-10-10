@@ -58,6 +58,11 @@ const Main = () => {
     }
   };
 
+
+  const closeAddPopUp = () => {
+    setShowAddPopUp(false);
+  };
+
   const userProfilePicture =
     auth.currentUser?.providerData[0]?.providerId === "google.com" &&
     auth.currentUser.photoURL
@@ -95,7 +100,7 @@ const Main = () => {
         ))}
 
         {/*Conditional rendering of AddPopUp*/}
-        {showAddPopUp && <AddPopUp />}
+        {showAddPopUp && <AddPopUp onClose={closeAddPopUp} />}
       </div>
 
       <div
