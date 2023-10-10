@@ -5,6 +5,9 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../styles/SignUpPage.css";
 import cakeImage from "../assets/birthday_cake_ext.jpg";
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+
+
 
 
 const SignUpPage = () => {
@@ -22,10 +25,17 @@ const SignUpPage = () => {
     }
   };
 
+  const goBack = () => {
+    navigate("/"); 
+  };
+
   return (
     <div className="page-container">
     <img src={cakeImage} alt="cake" className="cake-image"/>
     <div className="signup-container">
+      <div className="back-button" onClick={goBack}>
+          <ArrowBackIcon /> 
+        </div>
       <h2>Sign Up</h2>
       <div className="input-wrapper">
       <input

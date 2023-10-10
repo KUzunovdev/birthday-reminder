@@ -54,3 +54,24 @@
     min-width: 50%;
     min-height: 50px;
   }
+
+  .button-container{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .back-button {
+    display: flex;
+    align-items: flex-start;
+    justify-content: left;
+    cursor: pointer;
+    font-size: larger;
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+  }
+  
+  .back-button:hover {
+    transform: scale(1.1); 
+    opacity: 0.8;
+  }
