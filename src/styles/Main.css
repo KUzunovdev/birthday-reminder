@@ -1,8 +1,46 @@
 
-.profile-wrapper{
-    display: flex;
-    border: solid black 2px;
-    width: 30%;
+
+/* user-profile  */
+.profile-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px;
+  background-color: #f0f0f0;
+  border-radius: 8px;
+  margin-bottom: 16px;
+}
+
+.profile-wrapper img {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+}
+
+.profile-wrapper p {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.profile-wrapper button {
+  background-color: #f50057;
+  color: #fff;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.profile-wrapper button:hover {
+  background-color: #d5004f;
+}
+
+.birthday-count {
+  font-size: 16px;
+  font-weight: 500;
+  margin-bottom: 16px;
+  text-align: right;
 }
 
 .birthday-count{
@@ -15,22 +53,21 @@
     flex-direction: column;
     align-items: center;
     width: 100%;
+    gap: 1em;
 }
 
 
 /*Plus button styles*/
 .button-plus {
-    position: absolute;
+    position: fixed;
     width: 35px;
     height: 35px;
     background: #fff;
     cursor: pointer;
     border: 2px solid #DC143C;
     border-radius: 25%;
-  
-    /* Mittig */
-    top: 50%;
-    left: 50%;
+    top: 90%;
+    left: 90%;
   }
   
   .button-plus:after {
@@ -65,3 +102,4 @@
     background-color: #DC143C;
     transition: 0.2s;
   }
+

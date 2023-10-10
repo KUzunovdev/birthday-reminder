@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import "../../styles/AddPopUp.css";
-import { collection, addDoc } from 'firebase/firestore';
+import { collection, addDoc , Timestamp } from 'firebase/firestore';
 import { fi } from "date-fns/locale";
 import { db , auth} from "../../server/firebaseConfig";
 
@@ -13,9 +13,11 @@ const AddPopUp = ({ onClose }) => {
     //handle the date format 
     const handleAdd = async () => {
         try {
+            const selectedDate = new Date(date); 
+            const timestamp = Timestamp.fromDate(selectedDate);
             const docRef = await addDoc(collection(db, "birthdays"), {
                 name: name,
-                date: date,
+                date: timestamp,
                 userID: auth?.currentUser?.uid,
             });
             console.log("Document written with ID: ", docRef.id);
@@ -31,7 +33,7 @@ const AddPopUp = ({ onClose }) => {
                 X
             </button>
             <input type="text" placeholder="Name" onChange={(e) => setName(e.target.value)} />
-            <input type="text" placeholder="Date" onChange={(e) => setDate(e.target.value)} />
+            <input type="date" placeholder="Date" onChange={(e) => setDate(e.target.value)} />
             {/* add emoji or image upload feature */}
             <button onClick={handleAdd} className="add-button">Add</button>
         </div>

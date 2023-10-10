@@ -1,7 +1,7 @@
 import React from "react";
 import "../../styles/BirthdayContainer.css";
 import { isBefore } from "date-fns";
-import { doc, deleteDoc } from "firebase/firestore";
+import { doc, deleteDoc, Timestamp } from "firebase/firestore";
 import {db} from "../../server/firebaseConfig";
 import UploadImage from "./UploadImage";
 import { useState } from "react";
@@ -19,15 +19,28 @@ const BirthdayContainer = ({ name, imgURL, date, id }) => {
   const currentDate = new Date();
   const birthdayDate = new Date(date);
 
+
+
+  birthdayDate.setHours(0, 0, 0, 0);
+ 
+
+ 
   const currentYear = currentDate.getFullYear();
 
+  
   birthdayDate.setFullYear(currentYear);
+
+  console.log(birthdayDate);
 
   if (isBefore(birthdayDate, currentDate)) {
     birthdayDate.setFullYear(currentYear + 1);
   }
 
+  
+  console.log(currentDate);
+
   const timeDifference = birthdayDate.getTime() - currentDate.getTime();
+  console.log(timeDifference);
   const daysLeft = Math.floor(timeDifference / (1000 * 3600 * 24));
 
   //Delete function

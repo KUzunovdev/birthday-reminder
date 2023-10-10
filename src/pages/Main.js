@@ -7,6 +7,8 @@ import { collection, getDocs, onSnapshot  } from "firebase/firestore";
 import AddPopUp from "./components/AddPopUp";
 import { useNavigate } from "react-router-dom";
 
+import ExitToAppIcon from '@mui/icons-material/ExitToApp';
+
 // setBirthdayList(birthdayList.docs.map(doc => doc.data()));
 // const data = await db.collection('birthdays').get();
 const Main = () => {
@@ -76,12 +78,13 @@ const Main = () => {
       : "User";
 
   return (
-    <div>
-      {/* Maybe use mui-material*/}
+    <div className="main-container">
       <div className="profile-wrapper">
         <img src={userProfilePicture} alt="" />
         <p>{userProfileName}</p>
-        <button onClick={signOut}>Log out</button>
+        <button onClick={signOut}>
+          <ExitToAppIcon /> Log out
+        </button>
       </div>
 
       <p className="birthday-count">{birthdayCount} birthdays today</p>
@@ -108,7 +111,10 @@ const Main = () => {
         onClick={() => {
           setShowAddPopUp(!showAddPopUp);
         }}
-      ></div>
+      >
+        
+
+      </div>
     </div>
   );
 };
